@@ -145,7 +145,7 @@ const actors = [{
   }]
 }];
 
-function Ex1()
+function Ex1() //correction
 {  
   for (var i = 0; i < deliveries.length; i++) 
   {
@@ -158,6 +158,36 @@ function Ex1()
       }
     }     
   }
+}
+
+function Ex2() //correction
+{
+	for (var i = 0; i < deliveries.length; i++) 
+	{
+		if(deliveries[i].volume != 0)
+		{
+			
+			if( deliveries[i].volume > 5 && deliveries[i].volume < 11)
+			{					
+				deliveries[i].price = deliveries[i].price - deliveries[i].price*(1/10);
+			}
+
+			else if (deliveries[i].volume > 10  && deliveries[i].volume < 26)
+			{
+				deliveries[i].price = deliveries[i].price -deliveries[i].price*(3/10);
+			}
+
+			else if (deliveries[i].volume > 25)
+			{
+				deliveries[i].price = deliveries[i].price - deliveries[i].price*(0.5);
+			}
+			
+			else
+			{					
+				deliveries[i].price = deliveries[i].price;
+			}
+		}
+	}
 }
 
 console.log(truckers);
