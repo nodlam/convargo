@@ -190,6 +190,28 @@ function Ex2() //correction
 	}
 }
 
+function Ex3() //correction
+{
+	for (var i = 0; i < deliveries.length; i++) 
+	{
+
+		var price = deliveries[i].price;
+		var comi = price *0.3;
+		deliveries[i].commission.TotalPrice = comi;
+		
+		var insurance = comi /2;
+		comi = insurance;
+		
+		var treasury = Math.ceil(deliveries[i].distance/500);
+		comi = comi - treasury;
+		deliveries[i].commission.convargo = comi;
+		deliveries[i].commission.treasury = treasury;
+		deliveries[i].commission.insurance = insurance;
+
+	}
+}
+
+
 console.log(truckers);
 console.log(deliveries);
 console.log(actors);
