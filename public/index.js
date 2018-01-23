@@ -154,7 +154,8 @@ function Ex1() //correction
       if(truckers[j].id == deliveries[i].truckerId)
 	  {
         var price = (truckers[j].pricePerKm * deliveries[i].distance) + (truckers[j].pricePerVolume * deliveries[i].volume);
-        deliveries[i].price = price;        
+        deliveries[i].price = price;
+        return price;        
       }
     }     
   }
@@ -208,6 +209,30 @@ function Ex3() //correction
 		deliveries[i].commission.treasury = treasury;
 		deliveries[i].commission.insurance = insurance;
 
+	}
+}
+
+function Ex4(vol)
+{
+	for (var i = 0; i < deliveries.length; i++) 
+	{
+		if(deliveries[i].options.deductibleReduction == true)
+		{
+			deliveries[i].price = deliveries[i].price + deliveries[i].volume;
+			deliveries[i].commission.convargo = deliveries[i].commission.convargo + deliveries[i].volume;
+			deliveries[i].commission.TotalPrice += deliveries[i].volume;
+			
+			if(vol<500)
+			{
+				var pr = Ex1 - 200;
+			}
+
+		}
+		else{
+			if(vol>(500){
+				var pr = Ex1 - 1000;
+			}
+		}
 	}
 }
 
