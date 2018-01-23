@@ -145,6 +145,21 @@ const actors = [{
   }]
 }];
 
+function Ex1()
+{  
+  for (var i = 0; i < deliveries.length; i++) 
+  {
+    for (var j = 0; j < truckers.length; j++) 
+	{
+      if(truckers[j].id == deliveries[i].truckerId)
+	  {
+        var price = (truckers[j].pricePerKm * deliveries[i].distance) + (truckers[j].pricePerVolume * deliveries[i].volume);
+        deliveries[i].price = price;        
+      }
+    }     
+  }
+}
+
 console.log(truckers);
 console.log(deliveries);
 console.log(actors);
