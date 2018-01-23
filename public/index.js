@@ -212,7 +212,7 @@ function Ex3() //correction
 	}
 }
 
-function Ex4(vol)
+function Ex4(vol) //correction
 {
 	for (var i = 0; i < deliveries.length; i++) 
 	{
@@ -236,6 +236,40 @@ function Ex4(vol)
 	}
 }
 
+function Ex5() //correction
+{
+	for (var i = 0; i < deliveries.length; i++) 
+	{
+		for (var j = 0; j < actors.length; j++) 
+		{
+			if(actors[j].deliveryId == deliveries[i].id)
+			{
+				for (var k = 0; k < 5; k++) 
+				{
+					switch(actors[j].payment[k].who){
+						case "shipper":
+							actors[j].payment[k].amount = deliveries[i].price;
+							break;
+						case "trucker":
+							actors[j].payment[k].amount = deliveries[i].price-deliveries[i].commission.TotalPrice;
+							break;
+						case "treasury":
+							actors[j].payment[k].amount = deliveries[i].commission.treasury;
+							break;
+						case "insurance":
+							actors[j].payment[k].amount = deliveries[i].commission.insurance;
+							break;
+						case "convargo":
+							actors[j].payment[k].amount = deliveries[i].commission.convargo;
+							break;
+						default:
+							console.log("OK");
+					}
+				}				
+			}
+		}		
+	}	
+}
 
 console.log(truckers);
 console.log(deliveries);
